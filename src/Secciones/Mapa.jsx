@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import L from 'leaflet'
 import {
     MapContainer,
     TileLayer,
@@ -11,6 +12,17 @@ import 'leaflet/dist/leaflet.css'
 
 import Decorado5 from '../assets/Decorado5.png'
 import Decorado8 from '../assets/Decorado8.png'
+import markerIcon from '../assets/marker-icon.png'
+import markerIcon2x from '../assets/marker-icon-2x.png'
+import markerShadow from '../assets/marker-shadow.png'
+
+delete L.Icon.Default.prototype._getIconUrl
+
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: markerIcon2x,
+    iconUrl: markerIcon,
+    shadowUrl: markerShadow,
+})
 
 const ubicacionNegocio = [21.061241326044154, -101.61770767825801]
 
